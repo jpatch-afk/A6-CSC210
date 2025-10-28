@@ -59,13 +59,13 @@ public class FakeSort {
 
     // for debugging purposes, uncomment this to
     // work with a smaller number of cards:
-    // cards = cards.split(cards.get(39));
+    cards = cards.split(cards.get(39));
 
     // mix up the cards
     Collections.shuffle(cards);
 
     // if you want to sort in array form, use:
-    Card[] card_arr = cards.toArray(new Card[0]);
+    //Card[] card_arr = cards.toArray(new Card[0]);
 
     // in your program, this would be a call to a real sorting algorithm
     cards = FakeSort.sort(cards, recorder);
