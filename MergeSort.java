@@ -6,7 +6,7 @@ public class MergeSort {
     
     ArrayDeque<CardPile> queue = new ArrayDeque<CardPile>();
   
-    // ***********************************************************
+    
     // Here is where you'll do the "work" of MergeSort:
     //   - Use queue to store the intermediate piles
     //   - Don't forget to register the new state with the
@@ -15,7 +15,7 @@ public class MergeSort {
     //        for (CardPile pile: queue) { // add all piles
     //           record.add(pile);
     //        }
-    // ***********************************************************
+    
 
     // return the sorted result here
     return queue.remove();
