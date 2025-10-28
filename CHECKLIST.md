@@ -11,9 +11,9 @@ your work, please indicate the status of each item
 
 ## Assignment Points:
 
-_____ 2 pt: Selection sort for CardPile sorts correctly
+_YES____ 2 pt: Selection sort for CardPile sorts correctly
 
-_____ 1 pt: Selection sort for CardPile implemented efficiently
+_YES____ 1 pt: Selection sort for CardPile implemented efficiently
 
 _____ 2 pt: Insertion sort for CardPile sorts correctly
 
