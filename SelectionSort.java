@@ -3,6 +3,12 @@ import java.util.Collections;
 
 public class SelectionSort {
   
+  /**
+   * Sorts a CardPile using the Selection sort method
+   * @param unsorted CardPile to be sorted
+   * @param record SortRecorder that sorts the cards visually
+   * @return a sorted version of 
+   */
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
     
     // register the starting configuration with the recorder
@@ -20,15 +26,11 @@ public class SelectionSort {
       Card new_card = pos.next();
       while(pos.hasNext()) {
         int compare = min.compareTo(new_card); 
-
-        if(compare == 0) {
-          min = new_card;
+        
+        if(compare < 0) {
           pos.next();
         }
-        else if(compare < 0) {
-          pos.next();
-        }
-        else if(compare > 0){
+        else if(compare >= 0){
           min = new_card;
           pos.next();
         }

@@ -3,6 +3,12 @@ import java.util.Collections;
 
 public class InsertionSort {
   
+  /**
+   * Sorts a CardPile using the InsertionSort method
+   * @param unsorted CardPile to be sorted
+   * @param record SortRecorder that sorts the cards visually
+   * @return sorted version of the initial CardPile
+   */
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
     
     // register the starting configuration with the recorder

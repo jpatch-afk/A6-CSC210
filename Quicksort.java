@@ -2,6 +2,12 @@ import java.util.Collections;
 
 public class Quicksort {
   
+  /**
+   * Sorts a CardPile using the QuickSort method
+   * @param unsorted CardPile to be sorted
+   * @param record SortRecorder that sorts the cards visually
+   * @return a sorted version of the initial CardPile
+   */
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
 
     record.add(unsorted);

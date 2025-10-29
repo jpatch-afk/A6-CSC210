@@ -19,6 +19,11 @@ public class SelectionSortTimer {
         }
     }
 
+    /**
+     * sorts the given unsorted CardPile using the SelectionSort Method
+     * @param unsorted CardPile to be sorted
+     * @return sorted version of the initial CardPile
+     */
     public static CardPile sort(CardPile unsorted){
 
         //new sorted pile
@@ -34,14 +39,10 @@ public class SelectionSortTimer {
         while(pos.hasNext()) {
             int compare = min.compareTo(new_card); 
 
-            if(compare == 0) {
-                min = new_card;
+            if(compare < 0) {
                 pos.next();
             }
-            else if(compare < 0) {
-                pos.next();
-            }
-            else if(compare > 0){
+            else if(compare >= 0){
                 min = new_card;
                 pos.next();
             }

@@ -3,6 +3,12 @@ import java.util.Collections;
 
 public class MergeSort {
   
+  /**
+   * Sorts a CardPile using the MergeSort method
+   * @param unsorted CardPile to be sorted
+   * @param record SortRecorder the sorts the cards visually
+   * @return sorted version of initial CardPile
+   */
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
     
     ArrayDeque<CardPile> queue = new ArrayDeque<CardPile>();
