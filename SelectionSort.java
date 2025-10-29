@@ -28,7 +28,7 @@ public class SelectionSort {
         else if(compare < 0) {
           pos.next();
         }
-        else if(compare >= 0){
+        else if(compare > 0){
           min = new_card;
           pos.next();
         }

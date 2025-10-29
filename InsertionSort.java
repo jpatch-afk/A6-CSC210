@@ -10,19 +10,14 @@ public class InsertionSort {
 
     CardPile sorted = new CardPile();
 
-    Card card = unsorted.getFirst();
-
-    sorted.add(card);
-    sorted.remove(card);
-
-
-    record.next();
-    record.add(sorted);   
-    record.add(unsorted); 
-
     ListIterator<Card> pos = sorted.listIterator();
    
     while(!unsorted.isEmpty()){
+
+      if(sorted.isEmpty()) {
+        sorted.add(unsorted.removeFirst());
+      }
+
       Card new_Card = unsorted.getFirst();
 
       int compare = new_Card.compareTo(sorted.getFirst());
@@ -54,10 +49,6 @@ public class InsertionSort {
       record.add(sorted);   
       record.add(unsorted); 
     }
-
-    
-
-    
     return sorted;
   }
 
@@ -77,6 +68,5 @@ public class InsertionSort {
     System.out.println(cards);
 
     recorder.display("Card Sort Demo: InsertionSort");
-
   }
 }
