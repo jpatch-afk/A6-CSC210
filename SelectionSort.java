@@ -1,4 +1,3 @@
-import java.util.ListIterator;
 import java.util.Collections;
 
 public class SelectionSort {
@@ -17,26 +16,16 @@ public class SelectionSort {
     //new sorted pile
     CardPile sorted = new CardPile();
 
-    //Iterator for the unsorted pile
-    ListIterator<Card> pos = unsorted.listIterator();
-
-
     while(!unsorted.isEmpty()){
       Card min = unsorted.getFirst();
-      Card new_card = pos.next();
-      while(pos.hasNext()) {
-        int compare = min.compareTo(new_card); 
-        
-        if(compare < 0) {
-          pos.next();
-        }
-        else if(compare >= 0){
-          min = new_card;
-          pos.next();
+      for(Card card: unsorted){
+        if(card.compareTo(min) >= 0) {
+          min = card;   
         }
       }
-      unsorted.remove(min);
       sorted.add(min);
+      unsorted.remove(min);
+
 
       record.next();
       record.add(sorted);   
@@ -64,3 +53,5 @@ public static void main(String[] args) {
   recorder.display("Card Sort Demo: SelectionSort");
   }
 }
+
+

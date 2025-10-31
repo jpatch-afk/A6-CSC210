@@ -1,4 +1,3 @@
-import java.util.ListIterator;
 import java.util.Collections;
 
 public class InsertionSort {
@@ -16,45 +15,23 @@ public class InsertionSort {
 
     CardPile sorted = new CardPile();
 
-    ListIterator<Card> pos = sorted.listIterator();
-   
-    while(!unsorted.isEmpty()){
+    //Adding first element of sorted cards
+    sorted.add(unsorted.remove());
 
-      if(sorted.isEmpty()) {
-        sorted.add(unsorted.removeFirst());
+    while(!unsorted.isEmpty()) {
+      Card new_card = unsorted.removeFirst();
+      int i = 0;
+      while(i < sorted.size() && new_card.compareTo(sorted.get(i))>0) {
+        i++;
       }
+      sorted.add(i, new_card);
 
-      Card new_Card = unsorted.getFirst();
 
-      int compare = new_Card.compareTo(sorted.getFirst());
-
-      if(compare == 0){
-        sorted.insertAfter(new_Card, sorted.getFirst());
-      }
-      else if(compare < 0){
-        sorted.insertBefore(new_Card, sorted.getFirst());
-      }
-      else if(compare > 0) {
-        Card sorted_card = pos.next();
-        while(compare > 0){
-          compare = new_Card.compareTo(sorted_card);
-
-          if(compare == 0) {
-            sorted.insertAfter(new_Card, sorted_card);
-          }
-          else if(compare < 0){
-            sorted.insertBefore(new_Card, sorted_card);
-          }
-          else if(compare > 0){
-            pos.next();
-          }
-        }
-      }
-
-      record.next();
-      record.add(sorted);   
-      record.add(unsorted); 
+    record.next();
+    record.add(sorted);
+    record.add(unsorted);
     }
+   
     return sorted;
   }
 

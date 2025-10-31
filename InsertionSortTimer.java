@@ -1,10 +1,8 @@
-import java.util.ListIterator;
-
 public class InsertionSortTimer {
     
     public static void main(String[] args) {
           
-        if (args.length<1) {
+        if (args.length < 1) {
             System.err.println("Please specify how many cards to sort!");
         } else {
             Card[] deck = Card.newDeck(true);
@@ -26,41 +24,14 @@ public class InsertionSortTimer {
     public static CardPile sort(CardPile unsorted) {
 
         CardPile sorted = new CardPile();
-
-        ListIterator<Card> pos = sorted.listIterator();
    
-        while(!unsorted.isEmpty()){
-
-            if(sorted.isEmpty()) {
-                sorted.add(unsorted.removeFirst());
+        while(!unsorted.isEmpty()) {
+            Card new_card = unsorted.removeFirst();
+            int i = 0;
+            while(i < sorted.size() && new_card.compareTo(sorted.get(i)) > 0) {
+              i++;
             }
-
-            Card new_Card = unsorted.getFirst();
-
-            int compare = new_Card.compareTo(sorted.getFirst());
-
-            if(compare == 0){
-                sorted.insertAfter(new_Card, sorted.getFirst());
-            }
-            else if(compare < 0){
-                sorted.insertBefore(new_Card, sorted.getFirst());
-            }
-            else if(compare > 0) {
-                Card sorted_card = pos.next();
-                while(compare > 0){
-                    compare = new_Card.compareTo(sorted_card);
-
-                    if(compare == 0) {
-                        sorted.insertAfter(new_Card, sorted_card);
-                    }
-                    else if(compare < 0){
-                        sorted.insertBefore(new_Card, sorted_card);
-                    }
-                    else if(compare > 0){
-                        pos.next();
-                    }
-                }
-            }
+            sorted.add(i, new_card);
         }
         return sorted;
     }

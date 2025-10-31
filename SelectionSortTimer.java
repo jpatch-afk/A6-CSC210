@@ -1,5 +1,3 @@
-import java.util.ListIterator;
-
 public class SelectionSortTimer {
     
     public static void main(String[] args) {
@@ -29,26 +27,16 @@ public class SelectionSortTimer {
         //new sorted pile
         CardPile sorted = new CardPile();
 
-        //Iterator for the unsorted pile
-        ListIterator<Card> pos = unsorted.listIterator();
-
-
         while(!unsorted.isEmpty()){
-        Card min = unsorted.getFirst();
-        Card new_card = pos.next();
-        while(pos.hasNext()) {
-            int compare = min.compareTo(new_card); 
-
-            if(compare < 0) {
-                pos.next();
+            Card min = unsorted.getFirst();
+            for(Card card: unsorted){
+              if(card.compareTo(min) >= 0) {
+                min = card;   
+              }
             }
-            else if(compare >= 0){
-                min = new_card;
-                pos.next();
-            }
-        }
-        unsorted.remove(min);
-        sorted.add(min);
+            sorted.add(min);
+            unsorted.remove(min);
+        
         }
         // return the sorted result here
         return sorted;
